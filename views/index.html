@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Zoom In</title>
+
+    <link rel="icon" href="https://images.vexels.com/media/users/3/141955/isolated/preview/d0f766bbe2603124417ed31d027b14c8-camera-icon-or-logo-by-vexels.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    
+
+</head>
+
+<body>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid" id="landing" style ="height: 176px; overflow: hidden">
+        <div class="container">
+            <p id="lead">Zoom In</p>
+            
+                <nav>
+                    
+                    <div class="navigation">
+                        <!-- <a href="create.html">Create</a>
+                        <a href="find.html">Find</a>
+                        <a class="active" href="groups.html">Groups</a> -->
+                    </div>
+                    
+                </nav>
+    
+        </div>
+    </div>
+
+    <div class="container" >
+        <main class= "center">
+
+            <form class="column" >
+                <h3 class= "center">Login</h3>
+                <input id="name" class="form-control" type="name" placeholder="Enter Name">
+                <input id="email" class="form-control"type="email" placeholder="Your Email Address">
+                <input id="zip"class="form-control" type="zip" placeholder="Enter Zip Code">
+
+
+                <select placeholder="Photography" class="form-control" style=" height: 35px;"><div class="input-group-append">
+                
+                    <option selected>Choose Photography Catagory</option>
+                    <option value="Nature">Nature</option>
+                    <option value="Urban">Urban</option>
+                    <option value="Product">Product</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Food">Food</option>
+                    <option value="Pet">Pet</option>
+                    <option value="Event">Event</option>
+                    
+    
+                </select>
+                
+                <input id="password" class="form-control" type="password" placeholder="Enter Password">
+                <input id="confirm" style='display:none' type="password" placeholder="Confirm Password | Must be at least 6 characters">
+                <button id="submit" >Submit</button>
+                <div id="toggle-btn" class="row toggle center align-center">
+                    <p>Login</p>
+                    <div class="toggle-switch">
+                        <span></span>
+                    </div>
+                    <p>Register</p>
+                </div>
+            </form>
+        </main>
+    </div>
+
+
+</body>
+
+</html>
