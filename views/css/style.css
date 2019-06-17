@@ -2,17 +2,17 @@
 
 
 #lead{
-    font-family: "avenir";
-    font-size: 70px;
-    color:white;
+    font-family: 'Racing Sans One', cursive;
+    font-size: 100px;
+    color: #38C790;
     font-weight: 500;
-    margin-bottom: 0px;
+    text-align: left;
+    margin: 20px 0 20px 70px;
 }
 
 .jumbotron{
-    background-image: url("../jeda.jpg");
+    background-image: url("../ZoomIn.jpg");
     background-size: cover;
-    text-align: center;
     padding-bottom: 10px;
     height: 300px;
 }
@@ -22,66 +22,43 @@
 }
 
 /*--------------Nav Buttons-------------*/
-  
-#login, #logout, #home{
-    background-color: #2A3852;
-    border: #2A3852;
-    padding: 30px 15px 10px 15px;
-    color: #38C790;
-    float: right;
-    font-family: "avenir";
-    font-size: 16px;
-    font-weight: 500;
-}
-
-#home{
-    padding: 40px 15px 10px 15px;
-    color: #38C790;
-    float: right;
-    font-family: "avenir";
-    font-size: 16px;
-    font-weight: 500;
- }
- 
- #home:hover{
-    color: rgb(48, 170, 123);
-    font-weight: 500;
- }
-
-#login:hover{
-    color: rgb(48, 170, 123);
-    font-weight: 500;
-}
-
-#logout:hover{
-    color: rgb(48, 170, 123);
-    font-weight: 500;
-}
 
 .navigation {
     overflow: hidden;
+    padding-right: 75px;
 }
   
 /* Style the links inside the navigation bar */
 .navigation a {
     font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
     float: right;
-    color: #38C790;
+    color: white;
+    background-color:#38C790;
     text-align: right;
-    padding: 20px 0px 16px 15px;
+    padding: 5px 15px 5px 15px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 18px;
+    border: solid 1px rgb(44, 153, 111);
 }
   
 /* Change the color of links on hover */
 .navigation a:hover {
-    color:  rgb(44, 153, 111);
+    background-color: rgb(44, 153, 111);
   }
   
 /* Add a color to the active/current link */
 .navigation a.active {
     color:  #04899B;
+    background-color:#38C790;
 }
+#groupsButton{
+    border-radius: 5px 0 0 5px;
+}
+
+#createButton{
+    border-radius: 0 5px 5px 0;
+}
+
 /*--------------Form-------------*/
 
 * {
@@ -127,11 +104,7 @@ input{
     align-items: center;
 }
   
-header {
-    padding: 7px 5%;
-    background: #555;
-    color: #fff;
-}
+
 
 main {
     padding: 25px 5%;
@@ -188,6 +161,7 @@ form .toggle span.toggled {
 
 }
 
+
 /*--------------Submit Button-------------*/
 #submit{
     background-color: #38C790;
@@ -233,3 +207,89 @@ h3{
    
 }
 
+
+/*--------------Screen Change-------------*/
+
+@media screen and (max-width: 2000px) {
+
+    .navigation {
+        padding-right: 60px;
+    }
+
+    #lead{
+        margin: 10px 0 10px 60px;
+    }
+
+}
+
+@media screen and (max-width: 980px) {
+
+    .navigation {
+        display: inline-block;
+        margin: 0 70px 0 0;
+        /* padding-right: 0px; */
+    
+    }
+
+    .navigation a {
+        
+        padding: 5px 15px 5px 15px;
+        text-decoration: none;
+        font-size: 14px;
+        border: solid 1px rgb(44, 153, 111);
+    }
+
+   
+    
+    #lead{
+        text-align: center;
+        font-size: 90px;
+        margin: 5px 0 5px 0;
+        
+    }
+
+    .jumbotron{
+
+        background-size: cover;
+        overflow: hidden;
+        height: 250px;
+        padding-top: 20px;
+    }
+    
+}
+
+
+
+@media screen and (max-width: 500px) {
+
+    .navigation {
+        display: inline-block;
+        padding-right: 0px;
+        
+    
+    }
+
+    .navigation a {
+        
+        padding: 5px 15px 5px 15px;
+        text-decoration: none;
+        font-size: 14px;
+        border: solid 1px rgb(44, 153, 111);
+    }
+
+    
+    #lead{
+        text-align: center;
+        font-size: 70px;
+        margin: 5px 35px 5px 0;
+        
+    }
+
+    .jumbotron{
+
+        background-size: cover;
+        overflow: hidden;
+        height: 210px;
+    }
+    
+}
