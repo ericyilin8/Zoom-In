@@ -5,14 +5,15 @@
 <head>
     <meta charset="utf-8">
 
+    <!-- Tab Title -->
     <title>Zoom In</title>
 
-    <link rel="icon" href="/images/">
+    <!-- Tab Icon -->
+    <link rel="icon" href="images/cameraIcon.png">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Limelight|Racing+Sans+One&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css?family=Racing+Sans+One&display=swap" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -34,8 +35,8 @@
                 <nav>
                     
                     <div class="navigation">
-                        <a id = "createButton" class="active" href="create.html">Create</a>
-                        <a href="find.html">Find</a>
+                        <a id = "createButton" href="create.html">Create</a>
+                        <a class="active" href="find.html">Find</a>
                         <a id = "groupsButton" href="groups.html">Groups</a>
                     </div>
                     
@@ -47,18 +48,14 @@
     <div class="container" >
         <main class= "center">
 
-            <form class="column" >
-                <h3 class= "center">Create New Event</h3>
-                <input id="name" class="form-control" type="name" placeholder="Enter Name">
-              
-                <input class="form-control" type="date" name="bday">
+            <form class="column" id="form500px" >
+                <h3 class= "center">Find Event</h3>
                 
-                <input id="zip" class="form-control" type="zip" placeholder="Enter Zip Code">
-
-
+                <input class="form-control" type="date" name="bday">
+                <input id="zip"class="form-control" type="zip" placeholder="Enter Zip Code">
                 <select placeholder="Photography" class="form-control" style=" height: 35px;"><div class="input-group-append">
                 
-                    <option selected>Choose Photography Catagory</option>
+                    <option selected>Choose Photography Category</option>
                     <option value="Nature">Nature</option>
                     <option value="Urban">Urban</option>
                     <option value="Product">Product</option>
@@ -66,12 +63,9 @@
                     <option value="Food">Food</option>
                     <option value="Pet">Pet</option>
                     <option value="Event">Event</option>
-                    
     
                 </select>
                 
-                <textarea class="form-control" id="textArea" placeholder="Enter Event Description and Start Time" rows="3"></textarea>
-               
                 <button id="submit" >Submit</button>
             </form>
             
