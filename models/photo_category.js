@@ -1,0 +1,20 @@
+"use strict";
+module.exports = function(sequelize, DataTypes) {
+  var Photocategory = sequelize.define(
+    "Photocategory",
+    {
+      category: DataTypes.STRING,
+    },
+    {}
+  );
+
+  Photocategory.associate = function(models) {
+    this.belongsToMany(models.User, {
+      through: "Usercategory"
+    });
+    this.hasMany(models.Event, {
+      onDelete: "cascade"
+    });
+  };
+  return Photocategory;
+};

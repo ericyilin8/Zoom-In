@@ -1,27 +1,29 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function(app, path, dirname) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
+    res.sendFile(path.join(dirname, "views/index.html"));
+   // res.render('index.html');
+  //  db.Example.findAll({}).then(function(dbExamples) {
+     
+    //});
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
+  app.get("/find.html", function(req,res){
+    res.sendFile(path.join(dirname, "views/find.html"));
+  });
+
+  app.get("/create.html", function(req,res){
+    res.sendFile(path.join(dirname, "views/create.html"));
+  });
+
+  app.get("/groups.html", function(req,res){
+    res.sendFile(path.join(dirname, "views/groups.html"));
   });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
-    res.render("404");
+   // res.render("404");
   });
 };

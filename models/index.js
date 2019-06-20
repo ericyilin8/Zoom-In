@@ -6,19 +6,32 @@ var Sequelize = require("sequelize");
 var basename = path.basename(module.filename);
 var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.json")[env];
-var db = {};
 
+var db = {};
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
+  console.log(config);
   var sequelize = new Sequelize(
     config.database,
     config.username,
     config.password,
     config
   );
+  /*config.database,
+  config.username,
+  config.password,
+  config*/
 }
-
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
+  
 fs.readdirSync(__dirname)
   .filter(function(file) {
     return (
@@ -28,6 +41,7 @@ fs.readdirSync(__dirname)
   .forEach(function(file) {
     var model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
+    console.log(model.name);
   });
 
 Object.keys(db).forEach(function(modelName) {
