@@ -11,11 +11,7 @@
 }
 
 .jumbotron{
-<<<<<<< HEAD:public/css/style.css
     background-image: url("../img/ZoomIn.jpg");
-=======
-    background-image: url("../images/ZoomIn.jpg");
->>>>>>> f35d0c8e62819719ce8d99a9144fecbe5b28298f:public/css/style.css
     background-size: cover;
     padding-bottom: 10px;
     height: 300px;

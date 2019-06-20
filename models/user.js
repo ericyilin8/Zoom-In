@@ -42,11 +42,7 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 
-<<<<<<< HEAD
   /*User.associate = function(models) {
-=======
-  User.associate = function(models) {
->>>>>>> f35d0c8e62819719ce8d99a9144fecbe5b28298f
     this.belongsToMany(models.PhotoCategory, {
       through: "UserCategory"
     });
