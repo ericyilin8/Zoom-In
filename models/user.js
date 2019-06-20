@@ -24,16 +24,28 @@ module.exports = function(sequelize, DataTypes) {
     {}
   );
 
+  var modelTest = sequelize.define(
+    "test",
+    {name: DataTypes.STRING},
+    {}
+
+
+  );
+
+
   User.associate = function(models) {
     this.belongsToMany(models.Event, {
       through: "EventUser"
     });
-  };
-
-  User.associate = function(models) {
-    this.belongsToMany(models.PhotoCategory, {
+    this.belongsToMany(models.Photocategory, {
       through: "UserCategory"
     });
   };
+
+  /*User.associate = function(models) {
+    this.belongsToMany(models.PhotoCategory, {
+      through: "UserCategory"
+    });
+  };*/
   return User;
 };

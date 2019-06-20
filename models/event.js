@@ -29,6 +29,11 @@ module.exports = function(sequelize, DataTypes) {
     this.belongsToMany(models.User, {
       through: "EventUser"
     });
+    this.belongsTo(models.Photocategory, {
+      foreignKey: {
+        allowNull:false //need id
+      }
+    })
   };
   return Event;
 };

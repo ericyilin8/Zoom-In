@@ -18,9 +18,9 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css">
     
 
 </head>
@@ -77,5 +77,33 @@
 
 
 </body>
+<script>
 
+$.ajax({
+    method: "GET",
+    url: "api/GetMyEvents/" + sessionStorage.getItem('userid')
+}).then(function(response){
+
+    console.log(response);
+
+    response.forEach(function(event, index){
+        var tr = $('<tr>');
+        
+
+        var date = new Date(event.eventDate);
+        var dateISO = date.toDateString();
+        var td1 = $('<td>' + event.eventZip + '</td>'); //location
+        var td2 = $('<td>' + dateISO + '</td>'); //date
+        var td3 = $('<td>' + event.PhotocategoryId + '</td>'); //category
+        var td4 = $('<td>' + event.eventDescription + '</td>'); //description
+        var td5 = $('<td>X</td>');//remove
+
+        tr.append(td1, td2, td3, td4, td5);
+
+        $('#groups').append(tr);
+    });
+
+})
+
+</script>>
 </html>

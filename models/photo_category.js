@@ -1,19 +1,20 @@
 "use strict";
 module.exports = function(sequelize, DataTypes) {
-  var PhotoCategory = sequelize.define(
-    "PhotoCategory",
+  var Photocategory = sequelize.define(
+    "Photocategory",
     {
-      category: {
-        type: DataTypes.STRING
-      }
+      category: DataTypes.STRING,
     },
     {}
   );
 
-  PhotoCategory.associate = function(models) {
+  Photocategory.associate = function(models) {
     this.belongsToMany(models.User, {
-      through: "UserCategory"
+      through: "Usercategory"
+    });
+    this.hasMany(models.Event, {
+      onDelete: "cascade"
     });
   };
-  return PhotoCategory;
+  return Photocategory;
 };
