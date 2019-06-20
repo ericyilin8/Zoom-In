@@ -1,5 +1,5 @@
 var db = require("../models");
-
+//may not need to pass in dirname
 module.exports = function(app, path, dirname) {
   // Load index page
   app.get("/", function(req, res) {
