@@ -174,7 +174,7 @@ module.exports = function (app) {
 
             user.getEvents().then(function(eventArr){
 
-              var eventids = [];
+              var eventids = [0];
 
               eventArr.forEach(function(val, index){
 
