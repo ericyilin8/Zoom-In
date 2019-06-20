@@ -5,15 +5,14 @@
 <head>
     <meta charset="utf-8">
 
-    <!-- Tab Title -->
     <title>Zoom In</title>
 
-    <!-- Tab Icon -->
-    <link rel="icon" href="images/cameraIcon.png">
+    <link rel="icon" href="https://images.vexels.com/media/users/3/141955/isolated/preview/d0f766bbe2603124417ed31d027b14c8-camera-icon-or-logo-by-vexels.png">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Limelight|Racing+Sans+One&display=swap" rel="stylesheet">
+    
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -54,10 +53,7 @@
                     <tr>
                         <div class="groupsTable" class="col-md-12">Groups</div>
                     </tr>
-                </thead>
-    
-                <tbody id='groups'> 
-                        <tr>
+                    <tr>
                         <th scope="col" class="align-middle">Location</th>
                         <th scope="col" class="align-middle">Date</th>
                         <th scope="col" class="align-middle">Category</th>
@@ -65,10 +61,14 @@
                         <th scope="col" class="align-middle">Remove</th>
                         <!-- <th scope="col">
                             <button type="button" class="btn">
-                                <span class="glyphicon glyphicon-remove"></span>
+                                <span class="glyphicon glyphicon-heart"></span>
                             </button>
                         </th> -->
                     </tr>
+                </thead>
+    
+                <tbody id='groups'> 
+
                 </tbody>
             </table>
             
@@ -79,6 +79,11 @@
 </body>
 <script>
 
+
+getMyEvents();
+
+
+function getMyEvents(){
 $.ajax({
     method: "GET",
     url: "api/GetMyEvents/" + sessionStorage.getItem('userid')
@@ -87,23 +92,90 @@ $.ajax({
     console.log(response);
 
     response.forEach(function(event, index){
-        var tr = $('<tr>');
+        var tr = $('<tr></tr>');
         
+            var category;
+        switch(event.PhotocategoryId){
+
+            case 1:
+            category = 'Nature'
+            break;
+            ;
+
+            case 2:
+            category = 'Urban'
+            break;
+            ;
+
+            case 3:
+            category = 'Product'
+            break;
+            ;
+
+            case 4:
+            category = 'Sports'
+            break;
+            ;
+
+            case 5:
+            category = 'Food'
+            break;
+            ;
+
+            case 6:
+            category = 'Pet'
+            break;
+            ;
+
+            case 7:
+            category = 'Event'
+            break;
+            ;
+
+
+        }
 
         var date = new Date(event.eventDate);
         var dateISO = date.toDateString();
         var td1 = $('<td>' + event.eventZip + '</td>'); //location
         var td2 = $('<td>' + dateISO + '</td>'); //date
-        var td3 = $('<td>' + event.PhotocategoryId + '</td>'); //category
+        var td3 = $('<td>' + category + '</td>'); //category
         var td4 = $('<td>' + event.eventDescription + '</td>'); //description
-        var td5 = $('<td>X</td>');//remove
+        var td5 = $('<td><button class="remove"><span class="glyphicon glyphicon-remove"></span></button></td>');//remove
 
         tr.append(td1, td2, td3, td4, td5);
+
+        tr.attr('data-eventid', event.id);
 
         $('#groups').append(tr);
     });
 
 })
 
-</script>>
+}
+
+//for dynamically generated items must use this way
+$('body').on('click', '.remove', function(){
+
+    console.log('remove clicked!');
+    var userid = sessionStorage.getItem('userid');
+    var eventid = $(this).parent().parent().attr('data-eventid');
+
+    $.ajax({
+        method: "DELETE",
+        url: "api/RemoveMe?userid=" + userid + "&eventid=" + eventid
+    }).then(function(response){
+
+        $('#groups').empty();
+        getMyEvents();
+        console.log(response);
+
+    });
+
+
+
+
+})
+
+</script>
 </html>
