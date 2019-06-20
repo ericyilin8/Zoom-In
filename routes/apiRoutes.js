@@ -174,7 +174,7 @@ module.exports = function (app) {
 
             user.getEvents().then(function(eventArr){
 
-              var eventids = [0];
+              var eventids = [0]; //null is not false in sql
 
               eventArr.forEach(function(val, index){
 
