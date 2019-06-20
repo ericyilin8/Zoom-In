@@ -3,10 +3,23 @@ module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define(
     "User",
     {
-      name: DataTypes.STRING,
-      email: DataTypes.STRING,
-      password: DataTypes.STRING,
-      zip: DataTypes.INTEGER
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      email: {
+        type: DataTypes.STRING,
+        isEmail: true
+      },
+      password: {
+        type: DataTypes.STRING
+      },
+      zip: {
+        type: DataTypes.INTEGER,
+        validate: {
+          len: [5]
+        }
+      }
     },
     {}
   );
@@ -29,7 +42,11 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 
+<<<<<<< HEAD
   /*User.associate = function(models) {
+=======
+  User.associate = function(models) {
+>>>>>>> f35d0c8e62819719ce8d99a9144fecbe5b28298f
     this.belongsToMany(models.PhotoCategory, {
       through: "UserCategory"
     });

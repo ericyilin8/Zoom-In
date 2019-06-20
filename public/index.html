@@ -5,13 +5,15 @@
 <head>
     <meta charset="utf-8">
 
+    <!-- Tab Title -->
     <title>Zoom In</title>
 
-    <link rel="icon" href="https://images.vexels.com/media/users/3/141955/isolated/preview/d0f766bbe2603124417ed31d027b14c8-camera-icon-or-logo-by-vexels.png">
+    <!-- Tab Icon -->
+    <link rel="icon" href="images/cameraIcon.png">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Limelight|Racing+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Racing+Sans+One&display=swap" rel="stylesheet">
     
 
     <!-- Bootstrap -->
@@ -30,7 +32,7 @@
 <body>
 
     <!-- Jumbotron -->
-    <div class="jumbotron jumbotron-fluid" id="landing" style ="height: 176px; overflow: hidden">
+    <div class="jumbotron jumbotron-fluid" id="landing">
         <div class="container">
             <p id="lead">Zoom In</p>
             
@@ -48,9 +50,9 @@
     </div>
 
     <div class="container" >
-        <main class= "center">
+        <main class= "center" id="register500px">
 
-            <form class="column" >
+            <form class="column" id="form500px">
                 <h3 class= "center">Login</h3>
                 <input id="name" class="form-control" type="name" placeholder="Enter Name">
                 <input id="email" class="form-control"type="email" placeholder="Your Email Address">
@@ -60,6 +62,7 @@
                 <select id="category" placeholder="Photography" class="form-control" style=" height: 35px;"><div class="input-group-append">
                 
                     <option selected>Choose Photography Category</option>
+<<<<<<< HEAD:views/index.html
                     <option value="1">Nature</option>
                     <option value="2">Urban</option>
                     <option value="3">Product</option>
@@ -67,6 +70,15 @@
                     <option value="5">Food</option>
                     <option value="6">Pet</option>
                     <option value="7">Event</option>
+=======
+                    <option id = "1" value="Nature">Nature</option>
+                    <option id = "2" value="Urban">Urban</option>
+                    <option id = "3" value="Product">Product</option>
+                    <option id = "4" value="Sports">Sports</option>
+                    <option id = "5" value="Food">Food</option>
+                    <option id = "6" value="Pet">Pet</option>
+                    <option id = "7" value="Event">Event</option>
+>>>>>>> f35d0c8e62819719ce8d99a9144fecbe5b28298f:public/index.html
                     
     
                 </select>

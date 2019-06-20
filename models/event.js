@@ -3,10 +3,24 @@ module.exports = function(sequelize, DataTypes) {
   var Event = sequelize.define(
     "Event",
     {
-      eventName: DataTypes.STRING,
-      eventDate: DataTypes.DATE,
-      eventZip: DataTypes.STRING,
-      eventDescription: DataTypes.TEXT
+      eventName: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      eventDate: {
+        type: DataTypes.DATE,
+        isDate: true
+      },
+      eventZip: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [5]
+        }
+      },
+      eventDescription: {
+        type: DataTypes.TEXT,
+        allowNull: false
+      }
     },
     {}
   );
