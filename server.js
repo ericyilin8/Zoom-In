@@ -27,7 +27,7 @@ app.use(express.static("public"));
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app, path, __dirname);
 
-var syncOptions = { force: false }; //temporarily set to true, returned to false
+var syncOptions = { force: true }; //temporarily set to true, returned to false
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
