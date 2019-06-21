@@ -1,12 +1,12 @@
-use zoom_In;
--- add data into the photo_category table --
-INSERT INTO photocategories (category, createdAt, updatedAt) values ('Nature', NOW(), NOW());
-INSERT INTO photocategories (category, createdAt, updatedAt) values ('Studio', NOW(), NOW());
-INSERT INTO photocategories (category, createdAt, updatedAt) values ('Urban', NOW(), NOW());
-INSERT INTO photocategories (category, createdAt, updatedAt) values ('Sports', NOW(), NOW());
-INSERT INTO photocategories (category, createdAt, updatedAt) values ('Food', NOW(), NOW());
-INSERT INTO photocategories (category, createdAt, updatedAt) values ('Pet', NOW(), NOW());
-INSERT INTO photocategories (category, createdAt, updatedAt) values ('Event', NOW(), NOW());
+use kjprfvvfqejcumq9;
+-- add data into the photo_category table, database is kjprfvvfqejcumq9 / zoom_In--
+INSERT INTO Photocategories (category, createdAt, updatedAt) values ('Nature', NOW(), NOW());
+INSERT INTO Photocategories (category, createdAt, updatedAt) values ('Studio', NOW(), NOW());
+INSERT INTO Photocategories (category, createdAt, updatedAt) values ('Urban', NOW(), NOW());
+INSERT INTO Photocategories (category, createdAt, updatedAt) values ('Sports', NOW(), NOW());
+INSERT INTO Photocategories (category, createdAt, updatedAt) values ('Food', NOW(), NOW());
+INSERT INTO Photocategories (category, createdAt, updatedAt) values ('Pet', NOW(), NOW());
+INSERT INTO Photocategories (category, createdAt, updatedAt) values ('Event', NOW(), NOW());
 
 -- add data into the user table --
 INSERT INTO users (name, email, password,zip, createdAt, updatedAt) values ('Chris', 'cslane@gmail.com', 'p@ssw0rd', 21012, NOW(), NOW());
