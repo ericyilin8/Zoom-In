@@ -55,7 +55,7 @@
 
                 <input class="form-control" type="date" id="date">
 
-                <input id="zip" class="form-control" type="zip" placeholder="Enter Zip Code">
+                <input id="zip" class="form-control" type="zip" placeholder="Enter Zip Code" pattern="[0-9]{5}" title="Please enter a 5 digit zip code.">
 
 
                 <select id="category" placeholder="Photography" class="form-control" style=" height: 35px;">
@@ -93,7 +93,13 @@
 
 
     $('#submit').on('click', function (e) {
+
+        if($('#zip')[0].validity.valid){
+        console.log($('#zip')[0].validity.valid);
         e.preventDefault();
+
+        }
+
 
         var name = $('#name').val().trim();
         var zip = $('#zip').val().trim();
@@ -117,6 +123,11 @@
             data: data
         }).then(function (response) {
             console.log(response);
+            if(response == "Event created!"){
+
+                window.location.pathname = "/groups.html";
+
+            }
          });
 
 

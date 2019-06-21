@@ -77,7 +77,7 @@ module.exports = function (app) {
 
   });
 
-  app.post("/api/CreateUser", function (req, res) {
+  /*app.post("/api/CreateUser", function (req, res) {
     var user = {
       name: req.body.name,
       zip: req.body.zip,
@@ -103,9 +103,41 @@ module.exports = function (app) {
 
 
 
-  })
+  })*/
 
-  app.post("/api/SignIn", function (req, res) {
+  app.post("/api/CreateUser", function (req, res) {
+
+    var user = {};
+    var saltRounds = 3;
+    var bcrypt = require('bcrypt');
+    bcrypt.hash(req.body.password, saltRounds, function(err, hash){
+    user = {
+      name: req.body.name,
+      zip: req.body.zip,
+      email: req.body.email,
+      password: hash,
+ 
+    }
+  });
+
+    var categoryid = req.body.categoryid;
+ 
+    db.Photocategory.findOne({ where: { id: categoryid } }).then(function (categoryInstance) {
+      db.User.create(user).then(function (createdUser) {
+        //only send user id and name
+        createdUser.addPhotocategory(categoryInstance);
+ 
+        var returnedObj = {
+          userid: createdUser.id,
+          name: createdUser.name
+        };
+        res.json(returnedObj);
+      });
+ 
+    });
+
+  });
+  /*app.post("/api/SignIn", function (req, res) {
     var email = req.body.email;
     var password = req.body.password;
     db.User.findOne({ where: { email: email, password: password } }).then(function (user) {
@@ -124,6 +156,32 @@ module.exports = function (app) {
 
     })
 
+  })*/
+
+  app.post("/api/SignIn", function (req, res) {
+    var email = req.body.email;
+    var password = req.body.password;
+    console.log(password);
+ 
+    db.User.findOne({ where: { email: email } }).then(function (user) {
+      var bcrypt = require('bcrypt');
+      bcrypt.compare(password, user.password, function(err, result) {
+      console.log(user.password);
+      if (user) {
+        var returnedObj = {
+          userid: user.id,
+          name: user.name
+ 
+        };
+ 
+        res.json(returnedObj);
+ 
+      } else {
+        res.send("");
+      }
+    })
+    })
+ 
   })
 
   //get my events
@@ -147,14 +205,17 @@ module.exports = function (app) {
 
   app.get("/api/FindEvents", function(req, res){
 
+    console.log('bye');
     var userid = req.query.userid;
     var zip = req.query.zip;
     var categoryid = req.query.categoryid;
+    var apikey = process.env.API_KEY;
 
-    var url = 'https://www.zipcodeapi.com/rest/QNPiIowdGOfFFQRAyhXHM2rhwXZbuvDCl809OJzPzotrR0qVQEw0wd5Q7EARp8Tc/radius.json/'+zip+'/10/mile';
+    var url = 'https://www.zipcodeapi.com/rest/'+apikey+'/radius.json/'+zip+'/10/mile';
 
     var request = require('request');
     request.get(url, {json: true}, function(err, res2) {
+      console.log(res2);
         if (!err && res2.statusCode === 200) {
           var sortedZips = res2.body.zip_codes.sort(function(a,b){
 
