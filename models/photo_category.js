@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
 
   Photocategory.associate = function(models) {
     this.belongsToMany(models.User, {
-      through: "Usercategory",
+      through: "UserCategory",
       foreignKey: "userId_Usercategory"
     });
     this.hasMany(models.Event, {
