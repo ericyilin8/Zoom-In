@@ -51,7 +51,8 @@
             <form class="column" id="form500px">
                 <h3 class="center">Find Event</h3>
 
-                <input id="zip" class="form-control" type="zip" placeholder="Enter Zip Code">
+                <input id="zip" class="form-control" type="zip" placeholder="Enter Zip Code" pattern="[0-9]{5}"
+                    title="Please enter a 5 digit zip code.">
                 <select id="category" placeholder="Photography" class="form-control" style=" height: 35px;">
                     <div class="input-group-append">
 
@@ -108,6 +109,7 @@
     <script>
         function findEvents() {
 
+            console.log('hi');
             var zip = $('#zip').val().trim();
             var categoryid = $('#category').val().trim();
 
@@ -117,6 +119,7 @@
             }).then(function (response) {
 
                 console.log(response);
+                console.log('hi');
 
                 response.forEach(function (event, index) {
                     var tr = $('<tr></tr>');
@@ -183,7 +186,11 @@
 
 
         $('#submit').on('click', function (e) {
-            e.preventDefault();
+
+            if ($('#zip')[0].validity.valid) {
+                console.log($('#zip')[0].validity.valid);
+                e.preventDefault();
+            }
 
             $('#groups').empty();
             findEvents();
@@ -217,7 +224,7 @@
         })
 
 
-        $('body').on('click', '.add', function(e){
+        $('body').on('click', '.add', function (e) {
 
             e.preventDefault();
 
@@ -236,9 +243,9 @@
                 url: "api/AddMe",
                 method: "POST",
                 data: data
-            }).then(function(response){
+            }).then(function (response) {
                 console.log(response);
-                if(response == "Success!"){
+                if (response == "Success!") {
                     $(this2).empty();
                 }
 

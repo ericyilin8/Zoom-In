@@ -56,7 +56,7 @@
                 <h3 class= "center">Login</h3>
                 <input id="name" class="form-control" type="name" placeholder="Enter Name">
                 <input id="email" class="form-control"type="email" placeholder="Your Email Address">
-                <input id="zip"class="form-control" type="zip" placeholder="Enter Zip Code">
+                <input id="zip"class="form-control" type="zip" pattern="[0-9]{5}" title="Please enter a 5 digit zip code." placeholder="Enter Zip Code">
 
 
                 <select id="category" placeholder="Photography" class="form-control" style=" height: 35px;"><div class="input-group-append">
@@ -94,7 +94,8 @@
 <script>
 //send json of object with name, email, zip, and password
 
-
+//when putting the function into onclick of element, don't need to worry about event.preventDefault() not working with the input validation
+//form validation with jquery is call validate() then valid()
 
 </script>
 
