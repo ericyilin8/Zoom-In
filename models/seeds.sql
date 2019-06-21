@@ -1,5 +1,5 @@
-use kjprfvvfqejcumq9;
--- add data into the photo_category table, database is kjprfvvfqejcumq9 / zoom_In--
+use db;
+-- add data into the photo_category table, database is ... / zoom_In--
 INSERT INTO Photocategories (category, createdAt, updatedAt) values ('Nature', NOW(), NOW());
 INSERT INTO Photocategories (category, createdAt, updatedAt) values ('Studio', NOW(), NOW());
 INSERT INTO Photocategories (category, createdAt, updatedAt) values ('Urban', NOW(), NOW());

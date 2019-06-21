@@ -28,7 +28,8 @@ module.exports = function(sequelize, DataTypes) {
   Event.associate = function(models) {
     this.belongsToMany(models.User, {
       through: "EventUser",
-      foreignKey: "userId_EventUser"
+      foreignKey: "userId_EventUser",
+      constraints: true
     });
     this.belongsTo(models.Photocategory, {
       foreignKey: {
