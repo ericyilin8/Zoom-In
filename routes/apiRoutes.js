@@ -209,7 +209,7 @@ module.exports = function (app) {
     var userid = req.query.userid;
     var zip = req.query.zip;
     var categoryid = req.query.categoryid;
-    var apikey = process.env.API_KEY;
+    var apikey = process.env.API_Key;
 
     var url = 'https://www.zipcodeapi.com/rest/'+apikey+'/radius.json/'+zip+'/10/mile';
 

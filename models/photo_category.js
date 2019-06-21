@@ -20,3 +20,4 @@ module.exports = function(sequelize, DataTypes) {
   };
   return Photocategory;
 };
+//when i pushed to heroku for some reason was not adding foreignKey: ...
